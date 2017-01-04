@@ -1,7 +1,6 @@
 $(document).ready(function(){
     var carouselList = $("#carousel ul");
-    console.log($( "li" ).length);
-    //setInterval(changeSlide, 3000);
+    setInterval(changeSlide, 3000);
     
     function changeSlide() {
         carouselList.animate({'marginLeft':-400}, 500, moveFirstSlide);
@@ -32,7 +31,6 @@ $(document).ready(function(){
         var lastItem = carouselList.find("li:last");
         
         if (idElement==-(1)) {
-            console.log("MoveLastSlide: add"+($( "li" ).length-1)+" remove: 0");
             $("#img0").removeClass('active');
             $("#img"+($( "li" ).length-1)).addClass('active');
         }
@@ -53,7 +51,6 @@ $(document).ready(function(){
     });
 
     $( "li" ).each(function( index ) {
-        console.log( index + ": " + $( this ).text());
         if (index==0){
             $("#pagination").append( "<span id=img"+index+" class=active>"+(index+1)+"</span>");
         }
@@ -66,22 +63,17 @@ $(document).ready(function(){
         var firstItem = carouselList.find("li:first");
         var idElement = firstItem.attr('id');
         idElement++;
-
-        console.log($(this).text()+" "+idElement);
         if($(this).text() > idElement){
             while ($(this).text() != idElement) {
                 carouselList.animate({'marginLeft':-400}, 100, moveFirstSlide);
-                console.log($(this).text()+" "+idElement);
                 idElement++;
             }
         }
         else{
             while ($(this).text() != idElement) {
                 carouselList.animate({'marginLeft':400}, 100, moveLastSlide);
-                console.log($(this).text()+" "+idElement);
                 idElement--;
             }
         }
-
     });
 });

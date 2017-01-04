@@ -1,7 +1,7 @@
 $(document).ready(function(){
+    var interval = setInterval(changeSlide, 3000);
     var carouselList = $("#carousel ul");
-    setInterval(changeSlide, 3000);
-    
+
     function changeSlide() {
         carouselList.animate({'marginLeft':-400}, 500, moveFirstSlide);
     }
@@ -21,7 +21,6 @@ $(document).ready(function(){
         }
         lastItem.after(firstItem);
         carouselList.css({marginLeft:0});
-
     }
 
     function moveLastSlide() {
@@ -42,15 +41,22 @@ $(document).ready(function(){
         carouselList.css({marginLeft:0});
     }
 
+    function resetInteval(){
+        clearInterval(interval);
+        interval = setInterval(changeSlide, 3000);
+    }
+
     $('#left').click(function(){
+        resetInteval();
         carouselList.animate({'marginLeft':400}, 500, moveLastSlide);
     });
 
     $('#right').click(function(){
+        resetInteval();
         carouselList.animate({'marginLeft':-400}, 500, moveFirstSlide);
     });
 
-    $( "li" ).each(function( index ) {
+    $( "li" ).each(function(index) {
         if (index==0){
             $("#pagination").append( "<span id=img"+index+" class=active>"+(index+1)+"</span>");
         }
@@ -60,6 +66,7 @@ $(document).ready(function(){
     });
 
     $("span").click(function(){
+        resetInteval()
         var firstItem = carouselList.find("li:first");
         var idElement = firstItem.attr('id');
         idElement++;

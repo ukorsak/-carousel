@@ -11,7 +11,7 @@ $(document).ready(function(){
         var idElement = firstItem.attr('id');
         idElement++;
         var lastItem = carouselList.find("li:last");
-        if (idElement==$( "li" ).length) {
+        if (idElement===$( "li" ).length) {
             $("#img0").addClass('active');
             $("#img"+(idElement-1)).removeClass('active');
         }
@@ -29,7 +29,7 @@ $(document).ready(function(){
         idElement--;
         var lastItem = carouselList.find("li:last");
         
-        if (idElement==-(1)) {
+        if (idElement===-(1)) {
             $("#img0").removeClass('active');
             $("#img"+($( "li" ).length-1)).addClass('active');
         }
@@ -41,23 +41,23 @@ $(document).ready(function(){
         carouselList.css({marginLeft:0});
     }
 
-    function resetInteval(){
+    function resetInterval(){
         clearInterval(interval);
         interval = setInterval(changeSlide, 3000);
     }
 
     $('#left').click(function(){
-        resetInteval();
+        resetInterval();
         carouselList.animate({'marginLeft':400}, 500, moveLastSlide);
     });
 
     $('#right').click(function(){
-        resetInteval();
+        resetInterval();
         carouselList.animate({'marginLeft':-400}, 500, moveFirstSlide);
     });
 
     $( "li" ).each(function(index) {
-        if (index==0){
+        if (index===0){
             $("#pagination").append( "<span id=img"+index+" class=active>"+(index+1)+"</span>");
         }
         else {
@@ -66,7 +66,7 @@ $(document).ready(function(){
     });
 
     $("span").click(function(){
-        resetInteval()
+        resetInterval()
         var firstItem = carouselList.find("li:first");
         var idElement = firstItem.attr('id');
         idElement++;

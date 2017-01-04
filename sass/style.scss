@@ -1,0 +1,76 @@
+#carousel_container {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+#carousel {
+	width: 400px;
+	height: 300px;
+	border: 5px solid;
+	overflow: hidden;
+}
+
+ul {
+	width: 2000px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	width: 400px;
+	height: 300px;
+	list-style: none;
+	float: left;
+}
+
+#left, #right {  
+	padding: 10px 10px;
+}  
+
+#left i, #right i {  	 
+	cursor: pointer;  
+}  
+
+#pagination {
+    text-align: center;
+}
+
+#pagination span {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 14px;
+    min-width: 14px;
+    background: #fff;
+    color: #4E443C;
+    border-radius: 14px;
+    padding: 3px;
+    text-align: center;
+    margin-right: 2px;
+    opacity: .75;
+    cursor: pointer;
+}
+
+#pagination span.active {
+    background: #4E443C;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+}
